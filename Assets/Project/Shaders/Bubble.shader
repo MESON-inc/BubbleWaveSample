@@ -163,17 +163,17 @@
                 // --------------------------------------------------------------
                 // 波を適用したあとの形の法線を計算
 
-                float3 bioNormal = normalize(cross(i.normal, i.tangent.xyz));
+                float3 binormal = normalize(cross(i.normal, i.tangent.xyz));
                 float3 center = normalize(_CenterVector.xyz);;
 
                 float eps = 0.00001;
                 float3 vertex = applyWave(i.localPos.xyz, center);
                 float3 tangentVert = applyWave(i.localPos.xyz + i.tangent * eps, center);
-                float3 bioNormalVert = applyWave(i.localPos.xyz + bioNormal * eps, center);
+                float3 binormalVert = applyWave(i.localPos.xyz + binormal * eps, center);
 
                 float3 localTangentVert = normalize(tangentVert - vertex);
-                float3 localBioNormalVert = normalize(bioNormalVert - vertex);
-                float3 localNormal = cross(localTangentVert, localBioNormalVert);
+                float3 localBinormalVert = normalize(binormalVert - vertex);
+                float3 localNormal = cross(localTangentVert, localBinormalVert);
 
                 float3 normal = localNormal;
 
