@@ -1,5 +1,7 @@
 # Bubble Wave Shader Sample
 
+https://github.com/MESON-inc/BubbleWaveSample/assets/208165/b3a60025-19e1-4fb3-a0cf-cda0bbc0823f
+
 This project shows how to implement a shader that creates bubble effect on the sphere surface.
 
 You can click the surface of the bubble then the bubble will react with wave animation. The bubble surface has wavy nomal correctlly.
