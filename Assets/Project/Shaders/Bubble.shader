@@ -82,9 +82,9 @@
             {
                 float3 position = normalize(v);
 
-                float t = dot(position, center);
-                float p = acos(t);
-                float distance = p * _Radius;
+                float cosTheta = dot(position, center);
+                float radian = acos(cosTheta);
+                float distance = radian * _Radius;
                 float normalizedDistance = distance / (2.0 * PI * _Radius);
 
                 float width = 0.1;
@@ -97,9 +97,9 @@
                 float rend = rbegin + width;
                 float rmask = smoothstep(rbegin, rend, normalizedDistance);
 
-                float rad = distance * _WaveRatio - _Time.w;
+                float finalRadian = distance * _WaveRatio - _Time.w;
                 float influence = 1.0 - smoothstep(0, 0.3, normalizedDistance);
-                float s = sin(rad) * _WaveSize * influence;
+                float s = sin(finalRadian) * _WaveSize * influence;
                 s *= s;
                 float mm = s * (mask * rmask);
 
